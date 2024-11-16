@@ -5,7 +5,7 @@ import { ImCross } from 'react-icons/im';
 
 const Navbar = () => {
 
-    const [showNav, setShowNav] = useState(true);
+    const [showNav, setShowNav] = useState(false);
 
     return (
 
