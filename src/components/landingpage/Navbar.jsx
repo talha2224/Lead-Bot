@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import Logo from '../../assets/landing/leadbot.png'
+import Logo from '../../assets/leadbot.png'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { ImCross } from 'react-icons/im';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -12,10 +13,10 @@ const Navbar = () => {
         <div className=' flex justify-between items-center py-4 relative'>
 
 
-                <div className='flex items-center gap-x-2'>
-                    <img src={Logo} alt="leadbot-logo" />
-                    <h2 className='text-xl font-semibold'>Lead Bot</h2>
-                </div>
+            <div className='flex items-center gap-x-2'>
+                <img src={Logo} alt="leadbot-logo" />
+                <h2 className='text-xl font-semibold'>Lead Bot</h2>
+            </div>
 
 
             <div className='md:flex items-center gap-x-4 hidden'>
@@ -27,8 +28,10 @@ const Navbar = () => {
 
 
             <div className='md:flex items-center gap-x-6 hidden'>
-                <p className='text-[#0F172A] cursor-pointer'>Login</p>
-                <button className='text-[#0F172A] border-2 border-[#0F172A] w-[8rem] h-[2.5rem] rounded-md'>Singup Now</button>
+                <Link to={"/login"} className='text-[#0F172A] cursor-pointer'>Login</Link>
+                <Link to={"/register"}>
+                    <button className='text-[#0F172A] border-2 border-[#0F172A] w-[8rem] h-[2.5rem] rounded-md'>Singup Now</button>
+                </Link>
             </div>
 
             {/* RESPONSIVE  */}
@@ -49,8 +52,8 @@ const Navbar = () => {
                         <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Solution</p>
                         <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Pricing</p>
                         <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Resources</p>
-                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Login</p>
-                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Signup</p>
+                        <Link to={"/login"} className='text-[#0F172A] cursor-pointer text-sm mb-1'>Login</Link>
+                        <Link to={"/register"} className='text-[#0F172A] cursor-pointer text-sm mb-1'>Signup</Link>
 
                     </div>
                 )

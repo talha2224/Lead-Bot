@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebook, FaLinkedinIn, FaSkype, FaTwitter } from 'react-icons/fa'
-import Logo from '../../assets/landing/leadbot.png'
+import Logo from '../../assets/leadbot.png'
 
 const Footer = () => {
     return (
