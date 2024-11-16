@@ -9,7 +9,8 @@ body{
   height: 100vh;
   overflow-y: auto;
   font-family: "Poppins", sans-serif;
-
+  background-color:'#fafafa';
+  color: #0F172A;
 }
 
 ::-webkit-scrollbar{

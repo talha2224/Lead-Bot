@@ -1,0 +1,70 @@
+import React, { useState } from 'react'
+import Logo from '../../assets/landing/leadbot.png'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { ImCross } from 'react-icons/im';
+
+const Navbar = () => {
+
+    const [showNav, setShowNav] = useState(true);
+
+    return (
+
+        <div className=' flex justify-between items-center py-4 relative'>
+
+
+                <div className='flex items-center gap-x-2'>
+                    <img src={Logo} alt="leadbot-logo" />
+                    <h2 className='text-xl font-semibold'>Lead Bot</h2>
+                </div>
+
+
+            <div className='md:flex items-center gap-x-4 hidden'>
+                <p className='text-[#0F172A] cursor-pointer'>Product</p>
+                <p className='text-[#0F172A] cursor-pointer'>Solution</p>
+                <p className='text-[#0F172A] cursor-pointer'>Pricing</p>
+                <p className='text-[#0F172A] cursor-pointer'>Resources</p>
+            </div>
+
+
+            <div className='md:flex items-center gap-x-6 hidden'>
+                <p className='text-[#0F172A] cursor-pointer'>Login</p>
+                <button className='text-[#0F172A] border-2 border-[#0F172A] w-[8rem] h-[2.5rem] rounded-md'>Singup Now</button>
+            </div>
+
+            {/* RESPONSIVE  */}
+
+            <div className='md:hidden block'>
+                <GiHamburgerMenu onClick={() => { setShowNav(!showNav) }} className=' cursor-pointer text-xl text-[#EA580C]' />
+            </div>
+
+
+            {
+                showNav && (
+                    <div className='absolute bg-slate-50 w-[100%] top-[3.5rem] left-0 right-0 py-3 px-3'>
+                        <div className='flex items-end justify-end w-[100%]'>
+                            <ImCross onClick={() => { setShowNav(!showNav) }} className='text-sm cursor-pointer ' />
+                        </div>
+
+                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Product</p>
+                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Solution</p>
+                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Pricing</p>
+                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Resources</p>
+                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Login</p>
+                        <p className='text-[#0F172A] cursor-pointer text-sm mb-1'>Signup</p>
+
+                    </div>
+                )
+            }
+
+
+
+
+
+
+        </div>
+
+
+    )
+}
+
+export default Navbar
