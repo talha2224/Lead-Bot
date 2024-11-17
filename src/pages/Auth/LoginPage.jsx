@@ -31,17 +31,17 @@ const LoginPage = () => {
 
 
       {/* IMAGE  */}
-      <div>
+      <div className='sm:block hidden'>
         <img src={LoginBg} alt="" className='' />
       </div>
 
       {/* RIGHT FORM  */}
-      <div className='m-5'>
+      <div className='my-5 mx-10'>
 
         <p className='text-4xl font-semibold'>Login</p>
         <p className='mt-2 text-sm'> <span className='text-[#EA580C] mr-1'>Welome back! </span>sign in with your email and password</p>
         {/* FORM  */}
-        <form action="" onSubmit={handleSubmit}>
+        <form action="mx-10" onSubmit={handleSubmit}>
 
           <p className='mt-6 mb-3'>Email Address</p>
           <input onChange={(e) => onChangeInput(e)} type="email" name="email" placeholder='user@mail.com' required={true} className={inputStyle} />

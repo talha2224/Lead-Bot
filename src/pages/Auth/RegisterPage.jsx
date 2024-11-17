@@ -27,12 +27,12 @@ const RegisterPage = () => {
 
 
       {/* IMAGE  */}
-      <div>
+      <div className='sm:block hidden'>
         <img src={RegisterBg} alt=""/>
       </div>
 
       {/* RIGHT FORM  */}
-      <div className='m-5'>
+      <div className=''>
 
         <p className='text-4xl font-semibold'>Register</p>
         <p className='mt-2 text-sm'> <span className='text-[#EA580C] mr-1'>Let's create! </span>and account to use lead bot</p>
