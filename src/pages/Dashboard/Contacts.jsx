@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import { FaFileExcel, FaSyncAlt, FaPhoneAlt, FaCalendarAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { IoMdTrash } from "react-icons/io";
 
 const Contacts = () => {
-
-
     let thStyle = " py-2 px-4 text-left text-sm font-normal text-nowrap text-[#030229]"
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isExcelModalOpen, setIsExcelModalOpen] = useState(false);
+    const [listId, setListId] = useState("");
+    const [excelData, setExcelData] = useState(null);
 
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+    const openExcelModal = () => setIsExcelModalOpen(true);
+    const closeExcelModal = () => setIsExcelModalOpen(false);
 
 
     const userData = [
@@ -104,6 +111,24 @@ const Contacts = () => {
     ];
 
 
+    const handleExcelUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = event.target.result;
+                    setExcelData(data);
+                    console.log("Excel Data Loaded:", data);
+                }
+                catch (error) {
+                    console.error("Error reading Excel file:", error);
+                }
+            };
+            reader.readAsText(file);
+        }
+    };
+
 
     return (
 
@@ -121,16 +146,14 @@ const Contacts = () => {
                 </div>
 
 
-                <div title='Fetch Leads From Hubspot' className='flex justify-center items-center bg-[#EA580C] rounded-md w-[6rem] py-2 px-3 text-[#fff] text-sm gap-x-2 cursor-pointer mt-2'>
-
+                <div onClick={openModal} title='Fetch Leads From Hubspot' className='flex justify-center items-center bg-[#EA580C] rounded-md w-[6rem] py-2 px-3 text-[#fff] text-sm gap-x-2 cursor-pointer mt-2'>
                     <p className='text-white'>Resync</p>
                     <FaSyncAlt className='text-white' />
-
                 </div>
 
 
 
-                <div title='Upload Contact Data From Excel' className='flex justify-center items-center bg-[#008000] rounded-md w-[6rem] py-2 px-3 text-[#fff] text-sm gap-x-2 cursor-pointer mt-2'>
+                <div onClick={openExcelModal} title='Upload Contact Data From Excel' className='flex justify-center items-center bg-[#008000] rounded-md w-[6rem] py-2 px-3 text-[#fff] text-sm gap-x-2 cursor-pointer mt-2'>
                     <p className='text-white'>Excel</p>
                     <FaFileExcel className='text-white' />
                 </div>
@@ -197,6 +220,45 @@ const Contacts = () => {
                     </table>
                 </div>
             </div>
+
+
+            {/* RESYNC MODEL  */}
+
+            {
+                isModalOpen && (
+                    <div className="fixed top-0 left-0 w-screen h-screen inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ease-in-out" onClick={closeModal}>
+                        <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-md transform scale-95 opacity-0 animate-fade-in" onClick={(e) => e.stopPropagation()}>
+                            <h2 className="text-lg font-medium mb-4">Enter Hubspot List ID</h2>
+                            <input type="text" value={listId} onChange={(e) => setListId(e.target.value)} placeholder="List ID" className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-orange-500" />
+                            <div className="mt-4 flex justify-end">
+                                <button className="px-4 py-2 bg-gray-300 rounded-md mr-2" onClick={closeModal}>Cancel</button>
+                                <button className="px-4 py-2 bg-[#EA580C] text-white rounded-md" onClick={() => { console.log('List ID:', listId); closeModal(); }}>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+
+            {isExcelModalOpen && (
+                <div className="fixed top-0 left-0 w-screen h-screen inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ease-in-out" onClick={closeExcelModal} >
+                    <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-md transform scale-95 opacity-0 animate-fade-in" onClick={(e) => e.stopPropagation()}>
+                        <h2 className="text-lg font-medium mb-4">Upload Excel File</h2>
+                        <label htmlFor="excelFileInput" className="flex items-center justify-center gap-x-2 px-4 py-2 bg-green-600 text-white rounded-md shadow-md cursor-pointer hover:bg-green-700 transition-all duration-300">
+                            <FaFileExcel className="text-white text-lg" />
+                            <span>Upload</span>
+                        </label>
+                        <input id="excelFileInput" type="file" accept=".xlsx, .xls, .csv" className="hidden w-[100%]" onChange={handleExcelUpload} />
+                        <div className="mt-4">
+                            <p className="text-sm"> {excelData ? "File uploaded successfully. Check console for details." : "No file uploaded yet."}</p>
+                        </div>
+                        <div className="mt-4 flex justify-end">
+                            <button className="px-4 py-2 bg-gray-300 rounded-md mr-2" onClick={closeExcelModal}>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+
 
 
 
