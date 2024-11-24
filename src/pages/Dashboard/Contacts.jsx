@@ -1,19 +1,14 @@
 import React, { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
-import { FaFileExcel, FaSyncAlt, FaPhoneAlt, FaCalendarAlt } from "react-icons/fa";
+import { FaFileExcel, FaPhoneAlt, FaCalendarAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { IoMdTrash } from "react-icons/io";
 
 const Contacts = () => {
     let thStyle = " py-2 px-4 text-left text-sm font-normal text-nowrap text-[#030229]"
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isExcelModalOpen, setIsExcelModalOpen] = useState(false);
-    const [listId, setListId] = useState("");
     const [excelData, setExcelData] = useState(null);
 
-
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
     const openExcelModal = () => setIsExcelModalOpen(true);
     const closeExcelModal = () => setIsExcelModalOpen(false);
 
@@ -145,17 +140,9 @@ const Contacts = () => {
                     <CiSearch />
                 </div>
 
-
-                <div onClick={openModal} title='Fetch Leads From Hubspot' className='flex justify-center items-center bg-[#EA580C] rounded-md w-[6rem] py-2 px-3 text-[#fff] text-sm gap-x-2 cursor-pointer mt-2'>
-                    <p className='text-white'>Resync</p>
-                    <FaSyncAlt className='text-white' />
-                </div>
-
-
-
-                <div onClick={openExcelModal} title='Upload Contact Data From Excel' className='flex justify-center items-center bg-[#008000] rounded-md w-[6rem] py-2 px-3 text-[#fff] text-sm gap-x-2 cursor-pointer mt-2'>
-                    <p className='text-white'>Excel</p>
-                    <FaFileExcel className='text-white' />
+                <div onClick={openExcelModal} title='Upload Contact Data From Excel' className='flex justify-center items-center bg-[#eff2f7] rounded-md w-[6rem] py-2 px-3  text-sm gap-x-2 cursor-pointer mt-2'>
+                    <p className='text-sm'>Excel</p>
+                    <FaFileExcel className='text-green-600' />
                 </div>
 
 
@@ -221,23 +208,6 @@ const Contacts = () => {
                 </div>
             </div>
 
-
-            {/* RESYNC MODEL  */}
-
-            {
-                isModalOpen && (
-                    <div className="fixed top-0 left-0 w-screen h-screen inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ease-in-out" onClick={closeModal}>
-                        <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-md transform scale-95 opacity-0 animate-fade-in" onClick={(e) => e.stopPropagation()}>
-                            <h2 className="text-lg font-medium mb-4">Enter Hubspot List ID</h2>
-                            <input type="text" value={listId} onChange={(e) => setListId(e.target.value)} placeholder="List ID" className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-orange-500" />
-                            <div className="mt-4 flex justify-end">
-                                <button className="px-4 py-2 bg-gray-300 rounded-md mr-2" onClick={closeModal}>Cancel</button>
-                                <button className="px-4 py-2 bg-[#EA580C] text-white rounded-md" onClick={() => { console.log('List ID:', listId); closeModal(); }}>Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
 
             {isExcelModalOpen && (
                 <div className="fixed top-0 left-0 w-screen h-screen inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ease-in-out" onClick={closeExcelModal} >

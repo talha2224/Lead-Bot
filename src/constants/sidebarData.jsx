@@ -1,5 +1,6 @@
-import {FaChartBar, FaAddressBook, FaBuilding, FaCalendarAlt, FaRegCalendarCheck } from 'react-icons/fa';
+import {FaChartBar, FaAddressBook, FaBuilding, FaCalendarAlt, FaRegCalendarCheck, FaUser } from 'react-icons/fa';
 import { RxDashboard } from 'react-icons/rx';
+import { IoIosCall } from "react-icons/io";
 
 export const navData = [
     {
@@ -20,11 +21,24 @@ export const navData = [
         name: "Companies",
         icon: <FaBuilding />
     },
+
+    {
+        id: 21,
+        link: "calls",
+        name: "Call Logs",
+        icon: <IoIosCall />
+    },
     {
         id: 2,
         link: "analytics",
         name: "Analytics",
         icon: <FaChartBar />
+    },
+    {
+        id: 7,
+        link: "users",
+        name: "Users",
+        icon: <FaUser />
     },
     {
         id: 5,

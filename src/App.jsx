@@ -6,8 +6,10 @@ import LoginPage from './pages/Auth/LoginPage'
 import StepperPage from './pages/Stepper/StepperPage'
 import Layout from './components/dashboard/Layout'
 import Home from './pages/Dashboard/Home'
-import { useContext } from 'react'
 import Contacts from './pages/Dashboard/Contacts'
+import Companies from './pages/Dashboard/Companies'
+import CallLogs from './pages/Dashboard/CallLogs'
+import User from './pages/Dashboard/User'
 
 function App() {
 
@@ -24,6 +26,10 @@ function App() {
         <Route path='/dashboard/' element={<Layout />}>
           <Route path='home' element={<Home />} />
           <Route path='contacts' element={<Contacts />} />
+          <Route path='companies' element={<Companies />} />
+          <Route path='calls' element={<CallLogs />} />
+          <Route path='users' element={<User />} />
+          
         </Route>
 
       </Routes>

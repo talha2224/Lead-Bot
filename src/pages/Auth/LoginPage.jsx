@@ -15,7 +15,8 @@ const LoginPage = () => {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    nav("/dashboard/home")
   }
 
 
@@ -26,7 +27,7 @@ const LoginPage = () => {
       {/* LOGO  */}
       <Link to={"/"} className='flex items-center gap-x-5 md:fixed top-2 left-3 w-[100%] px-3'>
         <img src={Logo} className='' />
-        <p className='text-lg'>Lead Bot</p>
+        <p className='text-lg'>Dial Smart</p>
       </Link>
 
 

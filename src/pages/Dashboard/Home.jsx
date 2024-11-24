@@ -5,7 +5,7 @@ import { RiContactsBook2Fill } from 'react-icons/ri'
 import { SiGoogleads } from 'react-icons/si'
 import { Doughnut, Line } from "react-chartjs-2"
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
-import AvatarIcon from '../../assets/dashboard/avatar.svg'
+import AvatarIcon from '../../assets/dashboard/avatar.jpg'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, ArcElement, Title, Tooltip, Legend);
 

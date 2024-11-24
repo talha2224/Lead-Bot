@@ -15,7 +15,7 @@ const Navbar = () => {
 
             <div className='flex items-center gap-x-2'>
                 <img src={Logo} alt="leadbot-logo" />
-                <h2 className='text-xl font-semibold'>Lead Bot</h2>
+                <h2 className='text-xl font-semibold'>Dial Smart</h2>
             </div>
 
 

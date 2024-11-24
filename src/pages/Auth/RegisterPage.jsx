@@ -22,7 +22,7 @@ const RegisterPage = () => {
       {/* LOGO  */}
       <Link to={"/"} className='flex items-center gap-x-5 md:fixed top-2 left-3 w-[100%] px-3'>
         <img src={Logo} className='' />
-        <p className='text-lg'>Lead Bot</p>
+        <p className='text-lg'>Dial Smart</p>
       </Link>
 
 
@@ -35,7 +35,7 @@ const RegisterPage = () => {
       <div className=''>
 
         <p className='text-4xl font-semibold'>Register</p>
-        <p className='mt-2 text-sm'> <span className='text-[#EA580C] mr-1'>Let's create! </span>and account to use lead bot</p>
+        <p className='mt-2 text-sm'> <span className='text-[#EA580C] mr-1'>Let's create! </span>and account to use Dial Smart</p>
         {/* FORM  */}
         <form action="" onSubmit={handleSubmit}>
 

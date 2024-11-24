@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className='mb-4'>
                     <div className='flex items-center gap-x-2'>
                         <img src={Logo} alt="leadbot-logo" />
-                        <h2 className='text-[1.3rem]  font-semibold'>Lead Bot</h2>
+                        <h2 className='text-[1.3rem]  font-semibold'>Dial Smart</h2>
                     </div>
                     <p className='mt-2 text-sm'>Let’s Drive Growth and Efficiency for Your Business</p>
                     <p className='mt-2 text-sm'>Call us: + (92) 3422793234</p>
